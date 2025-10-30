@@ -1,51 +1,44 @@
 # College Predictor
 
-A simple CLI tool to predict college admissions based on historical data and machine learning.
+A web-based application that predicts the chances of getting admission into various colleges based on your entrance exam rank, category, and gender.  
+Built using **Python (Flask)** and integrated with a **Machine Learning model** trained on historical admission data.
 
-## Motive
-Help students estimate their chances of admission to various colleges using previous years' cut-off data and predictive modeling.
+---
 
-## Tech Stack
-- Python 3
-- Pandas
-- Scikit-learn
-- NumPy
+## 🚀 Features
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/thesaiprasadrao/jee-main-college-predictor.git
-   cd jee-main-college-predictor
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the predictor:
-   ```bash
-   python predictor_interface.py
-   ```
-4. Model File
-   https://drive.google.com/file/d/1JAXw64b99sqY9NuhfKT48JGN-5k241Ut/view?usp=sharing
+- Predicts college admission chances based on your input details.  
+- Simple and clean web interface.  
+- Machine learning model trained with real admission data.  
+- Option to analyze performance visually (future enhancement).  
+- Database integration (MongoDB/MySQL).  
 
-## Project Structure
-```
-├── main.py                    # Main entry point for training and demo
-├── predictor_interface.py     # Interactive CLI interface for predictions
-├── ml_model.py               # Machine learning models and prediction logic
-├── data_loader.py            # Data loading and preprocessing utilities
-├── requirements.txt          # Python dependencies
-├── trained_college_predictor.pkl  # Pre-trained ML model (generated)
-└── data/                     # Historical admission data (2020-2024)
-    ├── 2020/                 # Round-wise admission data for 2020
-    ├── 2021/                 # Round-wise admission data for 2021
-    ├── 2022/                 # Round-wise admission data for 2022
-    ├── 2023/                 # Round-wise admission data for 2023
-    └── 2024/                 # Round-wise admission data for 2024
-```
+---
 
-## Data
-- Historical cut-off data is stored in the `data/` folder.
+## 🧠 Tech Stack
 
-## Usage
-- Follow the prompts in the CLI to input your details and get predictions.
+| Layer | Technology |
+|:------|:------------|
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | Flask (Python) |
+| **Machine Learning** | scikit-learn, pandas, numpy |
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/AsrithaJonnala/College-Predictor.git
+cd College-Predictor
+### 2️⃣ Create and activate a virtual environment
+python -m venv venv
+venv\Scripts\activate   # for Windows
+# or
+source venv/bin/activate   # for macOS/Linux
+### 3️⃣ Install dependencies
+pip install -r requirements.txt
+### 4️⃣ Run the Flask application
+python app.py
+
+The app will start running on http://127.0.0.1:5000/
