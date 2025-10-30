@@ -1,111 +1,90 @@
 # College Predictor
 
-A full-stack web application that helps students find realistic college options based on their JEE Main rank. This project uses a dual-model system: a heuristic algorithm for general college list discovery and a machine learning model for specific admission predictions.
+A **full-stack machine learning web application** that helps students find realistic college options based on their **JEE Main rank**.  
+This project uses a **dual-model system** — a heuristic algorithm for general college discovery and a machine learning model for specific admission predictions.
 
-📸 Features
-Specific ML Predictor (Home Page): Uses a trained RandomForestRegressor to predict the exact admission probability for a single, specific college, branch, and category.
+---
 
-Heuristic College Finder (Secondary Page): Uses a log10-based heuristic algorithm to generate a complete list of "Safe," "Target," and "Reach" colleges based on historical data.
+## 🚀 Features
 
-Dual Model API: A single Flask backend (api.py) serves both the heuristic and ML models via different endpoints.
+### 🎯 ML-Powered Specific Predictor
+- Uses a **RandomForestRegressor** to predict the *exact admission probability* for a chosen **college**, **branch**, and **category**.
+- Provides highly personalized predictions based on historical JoSAA data.
 
-Data Pipeline: Includes a cleaner.py script to transform raw, multi-year JoSAA data into a clean, unified format required by the models.
+### 🧭 Heuristic College Finder
+- Implements a **log10-based heuristic algorithm** to classify colleges as:
+  - 🟢 **Safe**
+  - 🟡 **Target**
+  - 🔴 **Reach**
+- Helps students explore a range of realistic college options quickly.
 
-Dynamic Frontend: A clean, two-page UI built with vanilla HTML, CSS, and JavaScript that fetches data from the backend and displays results dynamically.
+### ⚙️ Dual Model API
+- A single **Flask backend (`api.py`)** serves both models:
+  - `/predict` → for ML-based predictions  
+  - `/recommend` → for heuristic-based recommendations
 
-ML-Powered Specific Predictor (Home Page) ``
+### 🧹 Data Pipeline
+- `cleaner.py` transforms **multi-year raw JoSAA datasets** into a clean, standardized format for model training and analysis.
 
-Heuristic College List Finder ``
+### 💻 Dynamic Frontend
+- Built using **HTML, CSS, and JavaScript (Fetch API)** for seamless API integration.
+- Clean and responsive two-page interface:
+  - **ML Predictor Page** (specific probability)
+  - **Heuristic College Finder Page** (categorized college list)
 
-Tech Stack
+---
 
-Backend: Flask, Pandas
-Machine Learning: scikit-learn (RandomForestRegressor, GradientBoostingRegressor, LabelEncoder), joblib
-Frontend: HTML5, CSS3, JavaScript (ES6+ Fetch API)
+## 🧠 Tech Stack
 
-📁 Project Structure
-jee-main-college-predictor/
-│
-├── data/
-│   └── (All CLEANED CSV files for the app)
-├── data_raw/
-│   └── (All RAW Kaggle CSV files)
-├── data_cleaned/
-│   └── (Output folder for cleaner.py)
-│
-├── frontend/
-│   ├── index.html            (ML Predictor Page)
-│   ├── predict_specific.js   (JS for ML Page)
-│   ├── college_list.html     (Heuristic List Page)
-│   ├── script.js             (JS for Heuristic Page)
-│   └── style.css
-│
-├── api.py                    (Main Flask Server)
-├── cleaner.py                (Data Cleaning/Transformation Script)
-├── main.py                   (Script to TRAIN the ML model)
-├── ml_model.py               (ML Model Class)
-├── predictor_interface.py    (Heuristic Model Class)
-│
-├── college_predictor_model.pkl (The saved, trained ML model)
-├── requirements.txt
-└── README.md
-🚀 How to Run This Project
-Follow these steps to set up and run the project locally.
+| Layer | Technologies Used |
+|-------|--------------------|
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+) |
+| **Backend** | Flask, Pandas |
+| **Machine Learning** | scikit-learn (RandomForestRegressor, GradientBoostingRegressor, LabelEncoder), joblib |
+| **Data Source** | JoSAA Historical Data |
+| **Tools** | Python 3.x, VS Code, GitHub |
 
-1. Clone the Repository
-Bash
+---
 
-git clone [https://github.com/thesaiprasadrao/jee-main-college-predictor.git](https://github.com/thesaiprasadrao/jee-main-college-predictor.git)
+## ⚙️ Setup and Installation
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/AsrithaJonnala/College-Predictor.git
 cd jee-main-college-predictor
-2. Set Up Virtual Environment & Install Dependencies
-Bash
-
-# Create a virtual environment
+---
+### 2️⃣ Set Up Virtual Environment and Install Dependencies
+**For Windows**
+```bash
 python -m venv venv
+venv\Scripts\activate
+**For macOS/Linux**
+python3 -m venv venv
+source venv/bin/activate
 
-# Activate it (Windows)
-.\venv\Scripts\activate
-# (macOS/Linux)
-# source venv/bin/activate
-
-# Install all required libraries
+Then install the dependencies:
 pip install -r requirements.txt
-3. Get and Clean the Data
-This project requires raw historical data from JoSAA.
+---
+### 3️⃣ Prepare the Data
 
-Download Data: Download the JoSAA datasets (e.g., from this Kaggle link)
-
-Place Data: Place all the raw .csv files into the data_raw folder.
-
-Run Cleaner: Run the cleaner.py script to transform the data.
-
-Bash
-
-python cleaner.py
-Move Data: Move all the new, clean .csv files from the data_cleaned folder into the main data folder.
-
-4. Train the ML Model
-You must train the RandomForestRegressor and save it to a file.
-
-Bash
-
-# This will run the training and comparison
+1. **Download Raw JoSAA Datasets** (for example, from Kaggle).  
+2. **Place all `.csv` files** into the `data_raw` folder.  
+3. **Clean and merge the data** by running:
+   ```bash
+   python cleaner.py
+4. Move the cleaned data from the data_cleaned folder into the main data folder.
+---
+### 4️⃣ Train the Machine Learning Model
+Train and save the `RandomForestRegressor` model:
+```bash
 python main.py
 This will create the college_predictor_model.pkl file in your root directory.
-
-5. Run the Backend Server
-Now you can start the Flask API.
-
-Bash
-
+---
+### 5️⃣ Run the Flask Backend
+Start the Flask API by running:
+```bash
 python api.py
-The server will start on http://127.0.0.1:5000. You will see it loading both the Heuristic and ML models.
+You’ll see messages confirming that both the ML and heuristic models have been loaded successfully.
+The server will start at:
 
-6. Open the Frontend
-You don't need a separate web server for the frontend.
-
-Navigate to the frontend folder.
-
-Open the index.html file directly in your web browser.
-
-The application is now fully functional and will communicate with your running Flask server.
+👉 http://127.0.0.1:5000
