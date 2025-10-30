@@ -52,7 +52,7 @@ This project uses a **dual-model system** — a heuristic algorithm for general 
 ```bash
 git clone https://github.com/AsrithaJonnala/College-Predictor.git
 cd jee-main-college-predictor
----
+
 ### 2️⃣ Set Up Virtual Environment and Install Dependencies
 **For Windows**
 ```bash
@@ -64,7 +64,7 @@ source venv/bin/activate
 
 Then install the dependencies:
 pip install -r requirements.txt
----
+
 ### 3️⃣ Prepare the Data
 
 1. **Download Raw JoSAA Datasets** (for example, from Kaggle).  
@@ -73,13 +73,13 @@ pip install -r requirements.txt
    ```bash
    python cleaner.py
 4. Move the cleaned data from the data_cleaned folder into the main data folder.
----
+
 ### 4️⃣ Train the Machine Learning Model
 Train and save the `RandomForestRegressor` model:
 ```bash
 python main.py
 This will create the college_predictor_model.pkl file in your root directory.
----
+
 ### 5️⃣ Run the Flask Backend
 Start the Flask API by running:
 ```bash
