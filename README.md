@@ -32,13 +32,16 @@ Built using **Python (Flask)** and integrated with a **Machine Learning model** 
 git clone https://github.com/AsrithaJonnala/College-Predictor.git
 cd College-Predictor
 ### 2️⃣ Create and activate a virtual environment
+```bash
 python -m venv venv
 venv\Scripts\activate   # for Windows
 # or
 source venv/bin/activate   # for macOS/Linux
 ### 3️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
 ### 4️⃣ Run the Flask application
+```bash
 python app.py
 
 The app will start running on http://127.0.0.1:5000/
