@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Main College Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <a href="predict_specific.html" style="text-decoration: none; color: #3498db; text-align: left;">&larr; Go to Specific College Predictor</a>
+        <h1>College Predictor</h1>
+        <p>Enter your details to predict your potential college admissions.</p>
+
+        <form id="predictor-form">
+            <div class="form-group">
+                <label for="rank">JEE Main Rank</label>
+                <input type="number" id="rank" placeholder="Enter your rank" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="">Loading categories...</option>
+                </select>
+            </div>
+
+            <button type="submit" id="submit-button">Predict</button>
+        </form>
+
+        <div id="results-container">
+            <h2>Results</h2>
+            <p id="loading-message" class="hidden">🔍 Finding recommendations...</p>
+            <p id="error-message" class="hidden"></p>
+            <div id="results-list">
+                </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

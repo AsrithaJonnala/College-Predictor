@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specific College Predictor (ML)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <a href="index.html" style="text-decoration: none; color: #3498db; text-align: left;">&larr; get colleges for your rank</a>
+
+        <h1>College Predictor</h1>
+        <p>Check your admission probability for a specific college and branch using our Model.</p>
+
+        <form id="predictor-form-ml">
+            <div class="form-group">
+                <label for="rank">Your JEE Main Rank</label>
+                <input type="number" id="rank" placeholder="Enter your rank" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="year">Target Year</label>
+                <select id="year" required>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="round">Target Round</label>
+                <select id="round" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="is_pwd">Are you a PwD Candidate?</label>
+                <select id="is_pwd" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="institute_type">Institute Type</label>
+                <select id="institute_type" required>
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quota">Quota</label>
+                <select id="quota" required>
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" required>
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+            
+            <div class="form-group" style="grid-column: 1 / -1;">
+                <label for="institute_name">Institute Name</label>
+                <select id="institute_name" required>
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+                <label for="branch">Branch Name</label>
+                <select id="branch" required>
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+
+            <button type="submit" id="submit-button">Predict Admission</button>
+        </form>
+
+        <div id="results-container">
+            <h2>Prediction Result</h2>
+            <p id="loading-message" class="hidden">🤖 Running ML Model...</p>
+            <p id="error-message" class="hidden"></p>
+            
+            <div id="ml-result" class="hidden">
+                <div id="result-status"></div>
+                <div id="result-details"></div>
+                <div id="result-recommendation"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="predict_specific.js"></script>
+</body>
+</html>
